@@ -1,0 +1,117 @@
+.order-gate-gradient-bg {
+    --background: linear-gradient(120deg, #e8f0fe 0%, #f5faff 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-form-card {
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 8px 38px rgba(70, 100, 180, 0.13);
+    padding: 38px 38px 28px 38px;
+    margin: 46px auto 0 auto;
+    max-width: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.order-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.order-label {
+    font-weight: 600;
+    color: #305487;
+    font-size: 1.08rem;
+    margin-bottom: 3px;
+}
+
+.order-input {
+    border-radius: 8px;
+    border: 1px solid #c7d8ef;
+    font-size: 1.1rem;
+    padding: 9px 10px;
+    margin-bottom: 0;
+    --highlight-background: #3761f4;
+}
+
+.order-options-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+    color: #1b3a64;
+    font-size: 1.09rem;
+}
+
+.order-option-item {
+    margin-bottom: 2px;
+    --background: transparent;
+    border-radius: 9px;
+    --border-color: #f1f4fa;
+    font-size: 1.06rem;
+}
+
+.order-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: #295abd;
+    font-size: 1.11rem;
+    border-top: 1px solid #e7e7e7;
+    padding-top: 12px;
+    margin-top: 6px;
+}
+
+.order-total {
+    font-weight: 800;
+    font-size: 1.14rem;
+    color: #119b72;
+}
+
+.order-submit-btn {
+    font-size: 1.18rem;
+    font-weight: 700;
+    padding: 15px 0;
+    margin-top: 18px;
+    border-radius: 16px;
+    --background: linear-gradient(90deg, #3761f4 0%, #36c1ea 100%);
+    color: #fff !important;
+    box-shadow: 0 2px 14px #3761f433;
+    letter-spacing: 1px;
+    transition: background 0.18s, box-shadow 0.15s, transform 0.12s;
+}
+.order-sticky-btn-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #f3f7fb 85%, #eaf6fb 100%);
+    padding: 18px 12px 8px 12px;
+    box-shadow: 0 -3px 24px #3761f42a;
+    z-index: 1200;
+    display: flex;
+    justify-content: center;
+}
+.order-submit-btn:hover {
+    filter: brightness(1.07);
+    --background: linear-gradient(90deg, #2540a7 0%, #38e2ea 100%);
+    box-shadow: 0 6px 26px #36c1ea44;
+    transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+    .order-form-card {
+        padding: 20px 6px 16px 6px;
+        max-width: 99vw;
+        border-radius: 13px;
+    }
+    .order-gate-gradient-bg {
+        padding-top: 18px;
+    }
+}

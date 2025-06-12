@@ -1,0 +1,1350 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Main Page Styles */
+.login-page-content {
+    --background: transparent;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Background Styles - Premium Minimalist */
+.background-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 50%, #ffffff 100%);
+}
+
+.background-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.01) 50%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+/* Minimal animated elements */
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 8s ease-in-out infinite;
+    opacity: 0.3;
+}
+
+.floating-element-1 {
+    top: 10%;
+    left: 10%;
+    width: 12rem;
+    height: 12rem;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02));
+}
+
+.floating-element-2 {
+    bottom: 10%;
+    right: 10%;
+    width: 16rem;
+    height: 16rem;
+    background: linear-gradient(45deg, rgba(30, 64, 175, 0.08), rgba(0, 0, 0, 0.03));
+    animation-delay: 2s;
+}
+
+.floating-element-3 {
+    top: 60%;
+    left: 30%;
+    width: 8rem;
+    height: 8rem;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.03), rgba(30, 64, 175, 0.05));
+    animation-delay: 4s;
+}
+
+/* Subtle particles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    animation: float 10s ease-in-out infinite;
+}
+
+.particle-1 {
+    top: 20%;
+    left: 20%;
+    width: 2px;
+    height: 2px;
+}
+
+.particle-2 {
+    top: 70%;
+    left: 80%;
+    width: 3px;
+    height: 3px;
+    background: rgba(30, 64, 175, 0.2);
+    animation-delay: 3s;
+}
+
+.particle-3 {
+    top: 40%;
+    right: 30%;
+    width: 1px;
+    height: 1px;
+    animation-delay: 1s;
+}
+
+.particle-4 {
+    bottom: 40%;
+    left: 60%;
+    width: 2px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.15);
+    animation-delay: 5s;
+}
+
+/* Navigation Styles - Premium */
+.navigation-bar {
+    position: relative;
+    z-index: 50;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(135deg, #000000, #1e40af);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo-icon ion-icon {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.logo-text {
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.025em;
+}
+
+.desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: none;
+    color: #404040;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.nav-button:hover {
+    color: #000000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-button ion-icon {
+    font-size: 1rem;
+}
+
+.mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #404040;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000000;
+}
+
+.mobile-menu-button ion-icon {
+    font-size: 1.5rem;
+}
+
+.mobile-nav-menu {
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.mobile-nav-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    border: none;
+    color: #404040;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    text-align: left;
+    width: 100%;
+}
+
+.mobile-nav-button:hover {
+    color: #000000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-button ion-icon {
+    font-size: 1rem;
+}
+
+/* Main Content */
+.main-content {
+    position: relative;
+    z-index: 10;
+    height: calc(100vh - 4rem);
+    display: flex;
+}
+
+/* Hero Section */
+.hero-section {
+    display: none;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 4rem;
+}
+
+.hero-content {
+    max-width: 32rem;
+}
+
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.status-indicator {
+    width: 6px;
+    height: 6px;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: pulse 3s infinite;
+}
+
+.trust-badge span {
+    color: #404040;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+}
+
+.gradient-text {
+    display: block;
+    background: linear-gradient(135deg, #1e40af, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #404040;
+    letter-spacing: -0.025em;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: #606060;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.hero-tagline {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: 0.05em;
+}
+
+/* Hero Image Styles - Minimal */
+.hero-image-container {
+    margin: 2rem 0;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.hero-image-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+.hero-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(30, 64, 175, 0.05) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.image-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.image-badge ion-icon {
+    font-size: 1rem;
+    color: #1e40af;
+}
+
+/* Features Grid - Minimal */
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon-new {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.feature-card:hover .feature-icon-new {
+    transform: scale(1.05);
+}
+
+.feature-icon-new ion-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.feature-icon-delivery {
+    background: linear-gradient(135deg, #000000, #404040);
+}
+
+.feature-icon-assembly {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+}
+
+.feature-icon-payment {
+    background: linear-gradient(135deg, #404040, #606060);
+}
+
+.feature-icon-offers {
+    background: linear-gradient(135deg, #000000, #1e40af);
+}
+
+.feature-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.feature-title-new {
+    color: #000000;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: block;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+}
+
+.feature-desc-new {
+    color: #606060;
+    font-size: 0.75rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Login Section */
+.login-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 3rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 26rem;
+}
+
+.mobile-hero {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.mobile-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.mobile-brand {
+    display: block;
+    background: linear-gradient(135deg, #1e40af, #000000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mobile-description {
+    color: #606060;
+    font-size: 0.875rem;
+    margin: 0 0 1.5rem 0;
+}
+
+/* Mobile Stats - Minimal */
+.mobile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.mobile-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all 0.2s ease;
+    flex: 1;
+    max-width: 5rem;
+}
+
+.mobile-stat-item:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.mobile-stat-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #000000, #1e40af);
+}
+
+.mobile-stat-icon ion-icon {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.mobile-stat-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.mobile-stat-number {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000000;
+    line-height: 1;
+}
+
+.mobile-stat-label {
+    color: #606060;
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Login Card - Premium */
+.login-card {
+    backdrop-filter: blur(40px);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    border-radius: 2rem;
+}
+
+.card-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent, rgba(30, 64, 175, 0.02));
+    animation: pulse 6s ease-in-out infinite;
+}
+
+.login-header {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.login-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+
+.login-subtitle {
+    color: #606060;
+    font-size: 0.875rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.login-content-area {
+    padding: 0 2rem 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* Form Styles - Premium */
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-label {
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    height: 3rem;
+}
+
+.input-container:focus-within {
+    border-color: #1e40af;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+.input-icon {
+    color: #a0a0a0;
+    margin-left: 1rem;
+    font-size: 1.125rem;
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.input-container:focus-within .input-icon {
+    color: #1e40af;
+}
+
+.custom-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0 1rem;
+    flex: 1;
+    height: 100%;
+    font-family: inherit;
+}
+
+.custom-input::placeholder {
+    color: #a0a0a0;
+}
+
+.password-toggle {
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    color: #1e40af;
+}
+
+.password-toggle ion-icon {
+    font-size: 1.125rem;
+}
+
+/* Buttons - Premium */
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Stats Section - Premium */
+.stats-section {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.stat-icon ion-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.stat-icon-customers {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+}
+
+.stat-icon-years {
+    background: linear-gradient(135deg, #000000, #404040);
+}
+
+.stat-icon-satisfaction {
+    background: linear-gradient(135deg, #404040, #1e40af);
+}
+
+.stat-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0b0b0b;
+    line-height: 1.2;
+}
+
+.stat-label {
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Features List - Premium */
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(4px);
+}
+
+.feature-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.feature-icon ion-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.feature-icon-green {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.feature-icon-blue {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+}
+
+.feature-icon-purple {
+    background: linear-gradient(135deg, #000000, #1e40af);
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-title {
+    color: #000000;
+    font-weight: 600;
+    display: block;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+}
+
+.feature-description {
+    color: #606060;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* Primary Button - Premium */
+.primary-button {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    background: linear-gradient(135deg, #000000 0%, #1e40af 100%);
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: inherit;
+}
+
+.primary-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.primary-button:active {
+    transform: translateY(0);
+}
+
+.button-content {
+    position: relative;
+    z-index: 10;
+}
+
+.button-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.primary-button:hover .button-glow {
+    opacity: 1;
+}
+
+/* Secondary Button - Premium */
+.secondary-button {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    background: transparent;
+    border: 1.5px solid rgba(0, 0, 0, 0.15);
+    border-radius: 1rem;
+    color: #000000;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    backdrop-filter: blur(10px);
+}
+
+.secondary-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+.secondary-button:active {
+    transform: translateY(0);
+}
+
+/* Ghost Button */
+.ghost-button {
+    position: relative;
+    width: 100%;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    color: #606060;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 1rem;
+    font-family: inherit;
+}
+
+.ghost-button:hover {
+    color: #000000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.ghost-button:active {
+    transform: scale(0.98);
+}
+
+.divider {
+    position: relative;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.divider span {
+    background: rgba(255, 255, 255, 0.8);
+    color: #a0a0a0;
+    padding: 0 1rem;
+    font-size: 0.75rem;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+}
+
+/* Trust Indicators */
+.trust-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: #a0a0a0;
+    font-size: 0.75rem;
+    transition: color 0.2s ease;
+}
+
+.trust-item:hover {
+    color: #1e40af;
+}
+
+.trust-item ion-icon {
+    font-size: 0.875rem;
+}
+
+/* Bottom Text */
+.bottom-text {
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 0.75rem;
+    margin-top: 1rem;
+}
+
+.link {
+    color: #1e40af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+/* Success/Error Messages - Premium */
+.success-message {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #22c55e;
+    font-size: 0.875rem;
+    padding: 1rem 1.25rem;
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    animation: slideInDown 0.3s ease-out;
+}
+
+.success-message ion-icon {
+    font-size: 1.25rem;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #3363ff;
+    font-size: 0.875rem;
+    padding: 1rem 1.25rem;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    animation: shake 0.3s ease-in-out;
+}
+
+.error-message ion-icon {
+    font-size: 1.25rem;
+}
+
+/* Animations - Subtle */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        box-shadow: 0 0 30px rgba(30, 64, 175, 0.15);
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(3px);
+    }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex !important;
+    }
+
+    .mobile-menu-button {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-section {
+        display: flex !important;
+    }
+
+    .login-section {
+        width: 50% !important;
+    }
+
+    .mobile-hero {
+        display: none !important;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .hero-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    .logo-icon{
+        display: flex!important;
+
+    }
+    .logo-text{
+        font-size: 1.25rem!important;
+    }
+    .hero-image-container {
+        margin: 1.5rem 0;
+    }
+
+    .hero-image {
+        height: 200px;
+    }
+
+    .feature-card {
+        padding: 1rem;
+    }
+
+    .feature-icon-new {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .feature-icon-new ion-icon {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-section {
+        padding: 1rem !important;
+    }
+    .logo-text{
+        font-size: 1.25rem!important;
+    }
+    .login-card {
+        border-radius: 1.5rem;
+    }
+
+    .login-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .login-content-area {
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .trust-indicators {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .trust-item {
+        justify-content: center;
+    }
+
+    .mobile-stats {
+        gap: 0.75rem;
+    }
+
+    .mobile-stat-item {
+        padding: 0.75rem;
+        max-width: 4.5rem;
+    }
+}
+
+/* Fix for responsive stats on desktop */
+@media (min-width: 1024px) {
+    .stats-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        flex-direction: row;
+    }
+}
+/* Mobile-specific styles for login page */
+
+@media (max-width: 767px) {
+    /* Hide hero section completely on mobile */
+    .hero-section {
+        display: none !important;
+    }
+
+    /* Hide desktop navigation items */
+    .desktop-nav {
+        display: none !important;
+    }
+
+    /* Hide mobile hero section with extra content */
+    .mobile-hero {
+        display: flow !important;
+    }
+
+    /* Hide features list on mobile */
+    .features-list {
+        display: none !important;
+    }
+
+    /* Adjust login container to take full width */
+    .login-container {
+        max-width: 100%;
+        padding: 0 0rem;
+    }
+
+    /* Make login card more compact */
+    .login-card {
+        margin-top: 0rem;
+    }
+
+    /* Simplify the header */
+    .navigation-bar {
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Hide trust indicators */
+    .trust-indicators {
+        display: none !important;
+    }
+
+    /* Hide bottom text */
+    .bottom-text {
+        display: none !important;
+    }
+
+    .mobile-menu-button {
+        display: none !important;
+    }
+
+    /* Adjust login title for cleaner look */
+    .login-title {
+        font-size: 1.5rem;
+    }
+
+    /* Make the login page content take full height */
+    .login-page-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Adjust main content to center the login form */
+    .main-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Remove extra padding */
+    .login-section {
+        padding: 1rem !important;
+    }
+
+    /* Make buttons slightly smaller */
+    .primary-button,
+    .secondary-button {
+        height: 2.75rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .login-header {
+        padding: 1.25rem 1.25rem 0.75rem;
+    }
+
+    .login-content-area {
+        padding: 0 1.25rem 1.25rem;
+    }
+
+    .login-card {
+        border-radius: 1.25rem;
+    }
+}

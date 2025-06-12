@@ -1,0 +1,117 @@
+.cart-gradient-bg {
+    --background: linear-gradient(120deg, #f6f8fc 0%, #e8f2fe 100%);
+    min-height: 100vh;
+    padding-bottom: 20px;
+}
+.cart-main-container {
+    max-width: 510px;
+    margin: 0 auto;
+    padding: 34px 8px 18px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    color: #181818; /* NEGRU implicit pentru tot textul */
+}
+.cart-section-title {
+    font-size: 1.12rem;
+    color: #2d4367;
+    font-weight: 700;
+    margin: 8px 0 4px 0;
+    letter-spacing: 0.2px;
+}
+.cart-order-list {
+    background: none;
+}
+.cart-order-item {
+    border-radius: 12px;
+    margin-bottom: 8px;
+    --background: #fff;
+    box-shadow: 0 2px 8px rgba(31,53,123,0.07);
+}
+.cart-order-item .ion-label,
+.cart-order-item .ion-label *,
+.cart-order-item span,
+.cart-order-item b {
+    color: #181818 !important; /* Negru pentru textul din comenzile din coș */
+}
+.cart-order-details {
+    font-size: 0.99rem;
+    color: #181818; /* Negru pentru detalii comandă */
+    display: flex;
+    gap: 14px;
+}
+.cart-order-price {
+    font-weight: 700;
+    color: #119b72 !important;
+    margin-left: 8px;
+}
+.cart-item {
+    --background: #fff;
+    border-radius: 12px;
+    margin-bottom: 6px;
+}
+.cart-item .ion-label,
+.cart-item .ion-label *,
+.cart-item span {
+    color: #181818 !important; /* Negru pentru adrese și label-uri */
+}
+.ion-select,
+.ion-select-option {
+    color: #181818 !important; /* Negru în select */
+}
+.cart-summary-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 16px 8px 16px;
+    box-shadow: 0 2px 8px rgba(31,53,123,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #181818; /* Negru pentru textul din sumar */
+}
+.cart-summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.06rem;
+    margin-bottom: 2px;
+    color: #181818; /* Negru explicit */
+}
+.cart-summary-price {
+    color: #1877f2 !important;
+    font-weight: 800;
+}
+.cart-summary-fee {
+    color: #b72a42 !important;
+}
+.cart-btn, .cart-btn-finalize {
+    font-size: 1.13rem;
+    font-weight: 700;
+    margin: 18px 0 0 0;
+    border-radius: 13px;
+    --background: linear-gradient(90deg, #3761f4 0%, #36c1ea 100%);
+    color: #fff !important;
+    box-shadow: 0 2px 14px #3761f433;
+}
+.cart-btn-finalize {
+    background: #119b72;
+    --background: linear-gradient(90deg, #119b72 0%, #27e1ab 100%);
+    margin-top: 15px;
+}
+.cart-modal-padding {
+    padding: 24px 10px;
+}
+@media (max-width: 700px) {
+    .cart-main-container {
+        max-width: 99vw;
+        padding: 12px 2vw 20px 2vw;
+    }
+}
+
+/* BONUS: forțăm orice label din zona de coș, pe orice temă Ionic */
+.cart-main-container .ion-label,
+.cart-main-container .ion-label *,
+.cart-main-container span,
+.cart-main-container b {
+    color: #181818 !important;
+}

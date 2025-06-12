@@ -1,0 +1,85 @@
+/* Additional styles for Sign Up page */
+
+/* Success Message */
+.success-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #10b981;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    animation: slideInDown 0.5s ease-out;
+}
+
+.success-message ion-icon {
+    font-size: 1.2rem;
+}
+
+/* Error Message */
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #012ec6;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    animation: shake 0.5s ease-in-out;
+}
+
+.error-message ion-icon {
+    font-size: 1.2rem;
+}
+
+/* Animations */
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* Sign Up specific modifications */
+.signup-page .hero-title {
+    color: #10b981;
+}
+
+.signup-page .gradient-text {
+    background: linear-gradient(45deg, #10b981, #059669, #047857);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.signup-page .primary-button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.signup-page .primary-button:hover {
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+}

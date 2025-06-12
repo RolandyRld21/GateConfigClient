@@ -1,0 +1,329 @@
+/* Enhanced Premium Modal - Optimized */
+.enhanced-premium-modal-admin {
+    --backdrop-opacity: 0.7;
+}
+
+.enhanced-premium-modal .modal-wrapper {
+    border-radius: 2.5rem;
+    overflow: hidden;
+    max-width: 28rem;
+    margin: 2rem auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.enhanced-modal-content {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    min-height: 24rem;
+}
+.enhanced-modal-content-admin {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    width: 600px;
+    min-height: 600px; /* Mărit de la 500px la 600px */
+    max-height: 80vh; /* Adăugat pentru responsive */
+}
+/* Modal Header */
+.enhanced-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+.enhanced-modal-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    border-radius: 2.5rem 2.5rem 0 0;
+}
+
+.enhanced-modal-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.enhanced-modal-icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.enhanced-modal-icon-wrapper ion-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.enhanced-modal-title-text h2 {
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.enhanced-modal-title-text p {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.enhanced-modal-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #64748b;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.enhanced-modal-close-button:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.enhanced-modal-close-button ion-icon {
+    font-size: 1.125rem;
+}
+
+/* Modal Body */
+.enhanced-modal-body {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.enhanced-modal-section {
+    margin-bottom: 1.5rem;
+}
+
+.enhanced-modal-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Modal Actions */
+.enhanced-modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.enhanced-modal-action-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #374151;
+    padding: 1rem 1.25rem;
+    border-radius: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    text-align: left;
+    width: 100%;
+}
+
+.enhanced-modal-action-button:hover {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: rgba(30, 64, 175, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.enhanced-action-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(30, 64, 175, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e40af;
+    flex-shrink: 0;
+}
+
+.enhanced-action-icon ion-icon {
+    font-size: 1.125rem;
+}
+
+.enhanced-action-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+}
+
+.enhanced-action-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.enhanced-action-description {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Logout Button */
+.logout-button {
+    background: rgba(30, 64, 175, 0.05) !important;
+    border-color: rgba(30, 64, 175, 0.2) !important;
+}
+
+.logout-button:hover {
+    background: rgba(30, 64, 175, 0.1) !important;
+    border-color: rgba(30, 64, 175, 0.3) !important;
+}
+
+.logout-button .enhanced-action-icon {
+    background: rgba(30, 64, 175, 0.2) !important;
+    color: #1e40af !important;
+}
+
+.logout-button .enhanced-action-title {
+    color: #1e40af !important;
+}
+
+/* Danger Button */
+.danger-button {
+    background: rgba(239, 68, 68, 0.05) !important;
+    border-color: rgba(239, 68, 68, 0.2) !important;
+}
+
+.danger-button:hover {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.danger-button .enhanced-action-icon {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #ef4444 !important;
+}
+
+.danger-button .enhanced-action-title {
+    color: #ef4444 !important;
+}
+
+/* Enhanced Settings Button */
+.enhanced-settings-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.enhanced-settings-button:hover {
+    color: #1e40af;
+    background: white;
+    border-color: rgba(30, 64, 175, 0.2);
+    transform: translateY(-1px);
+}
+
+.enhanced-settings-button ion-icon {
+    font-size: 1.125rem;
+    transition: transform 0.2s ease;
+}
+
+.enhanced-settings-button:hover ion-icon {
+    transform: rotate(90deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .enhanced-premium-modal .modal-wrapper {
+        margin: 1rem;
+        max-width: calc(100vw - 2rem);
+        border-radius: 2rem;
+    }
+
+    .enhanced-modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .enhanced-modal-body {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .enhanced-modal-icon-wrapper {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .enhanced-modal-icon-wrapper ion-icon {
+        font-size: 1.25rem;
+    }
+
+    .enhanced-modal-title-text h2 {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-premium-modal .modal-wrapper {
+        border-radius: 1.5rem;
+    }
+
+    .enhanced-modal-header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .enhanced-modal-body {
+        padding: 1rem;
+    }
+
+    .enhanced-modal-close-button {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .enhanced-modal-action-button {
+        padding: 0.875rem 1rem;
+    }
+
+    .enhanced-action-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+    }
+
+    .enhanced-action-icon ion-icon {
+        font-size: 1rem;
+    }
+}
+@media only screen and (min-width: 768px) and (min-height: 600px) {
+    .enhanced-premium-modal-admin {
+        --width: 600px !important;
+        --height: 600px !important;
+
+    }
+}

@@ -1,0 +1,59 @@
+.article-client-list-all-page {
+    --background: #ececec;
+    background-color: #ececec;
+    height: 100vh; /* Ensure full height */
+    display: flex;
+    flex-direction: column; /* Stack toolbar and content */
+    overflow: hidden; /* Prevent scrolling */
+}
+/* Layout de shop clasic pe desktop */
+.responsive-shop-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.filters-responsive {
+    width: 20%;
+    min-width: 170px;
+    max-width: 320px;
+    padding: 1rem 1.5rem 1rem 0.5rem;
+    color: #222;
+    background: none;
+}
+
+.products-responsive {
+    width: 80%;
+    min-width: 0;
+}
+
+@media (max-width: 900px) {
+    .responsive-shop-layout {
+        display: block;
+    }
+    .filters-responsive,
+    .products-responsive {
+        width: 100% !important;
+        max-width: none;
+        min-width: 0;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .filters-responsive {
+        margin-bottom: 1.5rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        background: none !important;
+        color: #222;
+    }
+}
+
+.sort-select-responsive {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #222;
+    font-weight: 500;
+}

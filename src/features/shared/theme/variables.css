@@ -1,0 +1,35 @@
+/* For information on how to create your own theme, please see:
+http://ionicframework.com/docs/theming/ */
+@import '../../../../node_modules/rc-slider/assets/index.css';
+.icon-footer-instagram{
+    color: orangered;
+}
+.icon-footer-facebook{
+    color: cornflowerblue;
+}
+.icon-footer-locate{
+    color: orange;
+}
+
+
+.product-card {
+    margin: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+}
+
+.product-image {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.price-filter {
+    padding: 1rem;
+}
