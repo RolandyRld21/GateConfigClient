@@ -17,4 +17,5 @@ export const login = async (email?: string, password?: string) => {
     }
     const { token, role } = await res.json();
     return { token, role };
+
 };
