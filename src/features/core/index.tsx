@@ -9,6 +9,7 @@ export interface IResponseProps<T> {
     data: T;
 }
 
+
 export function withLogs<T>(promise: Promise<IResponseProps<T>>, fnName: string): Promise<T> {
     log(`${fnName} - started`);
     return promise
