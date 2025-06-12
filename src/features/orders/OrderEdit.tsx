@@ -21,9 +21,7 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
     const [height, setHeight] = useState<number>(1);
     const [color, setColor] = useState<string>('#000000');
     const [options, setOptions] = useState<boolean[]>([false, false, false, false, false]);
-
     const [loading, setLoading] = useState(false);
-
     const [totalPrice, setTotalPrice] = useState<number>(0);
 
     useEffect(() => {
