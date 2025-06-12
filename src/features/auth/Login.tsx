@@ -21,7 +21,7 @@ import {
     timeOutline,
     heartOutline,
 } from "ionicons/icons"
-import { useHistory } from "react-router-dom" // ✅ useHistory pentru React Router v5
+import { useHistory } from "react-router-dom"
 import "../shared/theme/Login-page.css"
 import { getLogger } from "../core"
 import { AuthContext } from "./AuthProvider"
