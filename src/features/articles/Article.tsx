@@ -26,7 +26,6 @@ const Article: React.FC<IArticlePropsExt> = ({ _id, text, isUseful, onEdit, imag
                         </div>
                     )}
 
-
                     {/* Status Badge */}
                     <div className={`article-status-badge ${isUseful ? "status-available" : "status-unavailable"}`}>
                         <IonIcon icon={isUseful ? checkmarkCircle : closeCircle} />
