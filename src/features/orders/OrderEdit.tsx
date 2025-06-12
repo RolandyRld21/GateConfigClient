@@ -24,6 +24,7 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
     const [loading, setLoading] = useState(false);
     const [totalPrice, setTotalPrice] = useState<number>(0);
 
+
     useEffect(() => {
         const loadGate = async () => {
             if (!token) return;
