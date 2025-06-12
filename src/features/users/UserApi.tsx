@@ -1,6 +1,6 @@
 import { baseUrl } from '../core';
 
-const authUrl = `http://${baseUrl}/api/auth`;
+const authUrl = `https://${baseUrl}/api/auth`;
 
 export interface IUser {
     id: number;

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { authConfig, baseUrl, getLogger, withLogs } from '../core';
 import { IOrderProps } from './OrderProps';
 
-const orderUrl = `http://${baseUrl}/api/orders`;
+const orderUrl = `https://${baseUrl}/api/orders`;
 
 export const getOrders: (token: string) => Promise<IOrderProps[]> = (token) => {
     return withLogs(axios.get(orderUrl, authConfig(token)), 'getOrders');

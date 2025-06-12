@@ -4,8 +4,8 @@ import { IArticleProps} from "./ArticleProps";
 
 // const log = getLogger('articleApi');
 
-const articleUrl = `http://${baseUrl}/api/article`;
-const getAllArticlesUrl = `http://${baseUrl}/api//article/all`;
+const articleUrl = `https://${baseUrl}/api/article`;
+const getAllArticlesUrl = `https://${baseUrl}/api//article/all`;
 
 export const getArticles: (token : string) => Promise<IArticleProps[]> = (token) => {
     return withLogs(axios.get(articleUrl, authConfig(token)), 'getArticles');
@@ -39,7 +39,7 @@ export const deleteArticle = (token: string, articleId: string): Promise<void> =
 };
 export const getGateById = (token: string, id: number): Promise<IArticleProps> => {
     return withLogs(
-        axios.get(`http://${baseUrl}/api/article/${id}`, authConfig(token)),
+        axios.get(`https://${baseUrl}/api/article/${id}`, authConfig(token)),
         'getGateById'
     );
 };

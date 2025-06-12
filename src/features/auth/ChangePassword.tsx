@@ -96,7 +96,7 @@ const ChangePassword: React.FC = () => {
         setLoading(true)
 
         try {
-            const response = await fetch(`http://${baseUrl}/api/auth/change-password`, {
+            const response = await fetch(`https://${baseUrl}/api/auth/change-password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

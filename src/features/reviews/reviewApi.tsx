@@ -2,7 +2,7 @@ import axios from 'axios';
 import { authConfig, baseUrl, getLogger, withLogs } from '../core';
 import { IReviewProps } from './ReviewProps';
 
-const reviewUrl = `http://${baseUrl}/api/reviews`;
+const reviewUrl = `https://${baseUrl}/api/reviews`;
 
 export const getReviews: (token: string) => Promise<IReviewProps[]> = (token) => {
     return withLogs(axios.get(reviewUrl, authConfig(token)), 'getReviews');

@@ -87,7 +87,7 @@ const SignUp: React.FC = () => {
         setErrorMessage("")
 
         try {
-            const response = await fetch(`http://${baseUrl}/api/auth/signup`, {
+            const response = await fetch(`https://${baseUrl}/api/auth/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
