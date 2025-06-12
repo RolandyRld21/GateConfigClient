@@ -20,11 +20,8 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
     const [width, setWidth] = useState<number>(1);
     const [height, setHeight] = useState<number>(1);
     const [color, setColor] = useState<string>('#000000');
-    const [option1, setOption1] = useState(false);
-    const [option2, setOption2] = useState(false);
-    const [option3, setOption3] = useState(false);
-    const [option4, setOption4] = useState(false);
-    const [option5, setOption5] = useState(false);
+    const [options, setOptions] = useState<boolean[]>([false, false, false, false, false]);
+
     const [loading, setLoading] = useState(false);
 
     const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -40,15 +37,17 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
 
     useEffect(() => {
         if (!gate) return;
+
         const base = (gate.price || 0) * width * height;
-        const extras =
-            (option1 ? gate.option1 || 0 : 0) +
-            (option2 ? gate.option2 || 0 : 0) +
-            (option3 ? gate.option3 || 0 : 0) +
-            (option4 ? gate.option4 || 0 : 0) +
-            (option5 ? gate.option5 || 0 : 0);
+
+        const extras = options.reduce((sum, selected, index) => {
+            const optValue = gate[`option${index + 1}` as keyof IArticleProps] as number || 0;
+            return selected ? sum + optValue : sum;
+        }, 0);
+
         setTotalPrice(base + extras);
-    }, [gate, width, height, option1, option2, option3, option4, option5]);
+    }, [gate, width, height, options]);
+
 
     const handleSubmit = useCallback(async () => {
         if (!token || !gate) return;
@@ -58,11 +57,11 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
             width,
             height,
             color,
-            option1,
-            option2,
-            option3,
-            option4,
-            option5,
+            option1: options[0],
+            option2: options[1],
+            option3: options[2],
+            option4: options[3],
+            option5: options[4],
             total_price: totalPrice
         };
         try {
@@ -73,7 +72,7 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
         } finally {
             setLoading(false);
         }
-    }, [token, gate, width, height, color, option1, option2, option3, option4, option5, totalPrice, history]);
+    }, [token, gate, width, height, color, options, totalPrice, history]);
 
     return (
         <IonPage>
@@ -109,9 +108,22 @@ const OrderEdit: React.FC<OrderEditProps> = ({ match, history }) => {
                                     Option {i} ({String(gate[`option${i}` as keyof IArticleProps] ?? 0)} RON)
                                 </IonLabel>
 
-                                <IonCheckbox checked={eval(`option${i}`)}
-                                             onIonChange={e => eval(`setOption${i}`)(e.detail.checked)}
-                                />
+                                {[1, 2, 3, 4, 5].map(i => (
+                                    <IonItem key={i}>
+                                        <IonLabel>
+                                            Option {i} ({String(gate[`option${i}` as keyof IArticleProps] ?? 0)} RON)
+                                        </IonLabel>
+                                        <IonCheckbox
+                                            checked={options[i - 1]}
+                                            onIonChange={e => {
+                                                const newOptions = [...options];
+                                                newOptions[i - 1] = e.detail.checked;
+                                                setOptions(newOptions);
+                                            }}
+                                        />
+                                    </IonItem>
+                                ))}
+
                             </IonItem>
                         ))}
 
