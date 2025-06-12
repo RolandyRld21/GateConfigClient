@@ -7,7 +7,7 @@ export interface AuthProps {
 }
 
 export const login = async (email?: string, password?: string) => {
-    const res = await fetch('http://192.168.1.149:3000/api/auth/login', {
+    const res = await fetch('https://gateconfigserver.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })

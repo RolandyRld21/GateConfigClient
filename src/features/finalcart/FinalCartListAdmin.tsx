@@ -76,7 +76,7 @@ const FinalCartListAdmin: React.FC<{ history: any }> = ({ history }) => {
 
     const handleStatusChange = async (id: number, status: string) => {
         try {
-            await fetch(`http://192.168.1.149:3000/api/final-cart/admin/${id}`, {
+            await fetch(`https://gateconfigserver.onrender.com/api/final-cart/admin/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

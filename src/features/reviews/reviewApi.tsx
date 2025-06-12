@@ -19,7 +19,7 @@ export const getAllReviews = async (
     token?: string
 ) => {
     const res = await fetch(
-        `http://192.168.1.149:3000/api/reviews/all?offset=${offset}&limit=${limit}&sortField=${sortField}&sortOrder=${sortOrder}`,
+        `https://gateconfigserver.onrender.com/api/reviews/all?offset=${offset}&limit=${limit}&sortField=${sortField}&sortOrder=${sortOrder}`,
         {
             headers: token
                 ? { Authorization: `Bearer ${token}` }
@@ -66,7 +66,7 @@ export const updateReview: (token: string, review: IReviewProps) => Promise<IRev
 
 export const deleteReview = async (token: string, reviewId: number) => {
      console.log("deleteReviewdinAPI:", reviewId);
-    const res = await fetch(`http://192.168.1.149:3000/api/reviews/${reviewId}`, {
+    const res = await fetch(`https://gateconfigserver.onrender.com/api/reviews/${reviewId}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Bearer ${token}`

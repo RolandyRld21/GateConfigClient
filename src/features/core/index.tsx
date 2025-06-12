@@ -1,4 +1,4 @@
-export const baseUrl = '192.168.1.149:3000';
+export const baseUrl = 'gateconfigserver.onrender.com';
 
 export const getLogger: (tag : string) => (...args: any) => void =
         tag  => (...args) => console.log(tag, ...args);

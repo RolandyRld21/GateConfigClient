@@ -40,7 +40,7 @@ const OrderListAdmin: React.FC<RouteComponentProps<{ final_cart_id: string }>> =
         const fetchOrdersByCart = async () => {
             setLoading(true)
             try {
-                const res = await fetch(`http://192.168.1.149:3000/api/orders/admin/final-cart/${match.params.final_cart_id}`, {
+                const res = await fetch(`https://gateconfigserver.onrender.com/api/orders/admin/final-cart/${match.params.final_cart_id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 })
 

@@ -59,7 +59,7 @@ export const MyModal: React.FC = () => {
 
     const handleDeleteAccount = async () => {
         try {
-            const res = await fetch("http://192.168.1.149:3000/api/auth/account", {
+            const res = await fetch("https://gateconfigserver.onrender.com/api/auth/account", {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${token}`,

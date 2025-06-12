@@ -73,7 +73,7 @@ const OrderListClient: React.FC<RouteComponentProps<{ final_cart_id?: string }>>
         setFetching(true)
         setFetchingError(null)
         try {
-            let url = `http://192.168.1.149:3000/api/orders?email=${email}`
+            let url = `https://gateconfigserver.onrender.com/api/orders?email=${email}`
             const finalCartId = match.params.final_cart_id
             if (finalCartId) {
                 url += `&final_cart_id=${finalCartId}`
@@ -88,7 +88,7 @@ const OrderListClient: React.FC<RouteComponentProps<{ final_cart_id?: string }>>
 
             const reviewed: Record<number, { id: number; score: number; text: string }> = {}
             for (const order of data) {
-                const reviewRes = await fetch(`http://192.168.1.149:3000/api/reviews?order_id=${order.id}`, {
+                const reviewRes = await fetch(`https://gateconfigserver.onrender.com/api/reviews?order_id=${order.id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 })
                 const reviews = await reviewRes.json()

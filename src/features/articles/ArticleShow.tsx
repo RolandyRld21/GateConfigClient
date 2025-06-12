@@ -54,7 +54,7 @@ const ArticleShow: React.FC<IArticleShowProps> = ({ history, match }) => {
 
         try {
             const res = await fetch(
-                `http://192.168.1.149:3000/api/reviews/gate/${article._id}?sortField=${sortField}&sortOrder=${sortOrder}`,
+                `https://gateconfigserver.onrender.com/api/reviews/gate/${article._id}?sortField=${sortField}&sortOrder=${sortOrder}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,

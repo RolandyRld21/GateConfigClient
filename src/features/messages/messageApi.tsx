@@ -9,7 +9,7 @@ export interface Message {
     timestamp: string;
 }
 
-const baseUrl = 'http://192.168.1.149:3000/api/messages';
+const baseUrl = 'https://gateconfigserver.onrender.com/api/messages';
 
 export const getMessages = async (token: string, finalCartId: number): Promise<Message[]> => {
     const res = await fetch(`${baseUrl}/${finalCartId}`, {

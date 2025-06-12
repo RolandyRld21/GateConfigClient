@@ -32,7 +32,7 @@ export interface FinalCart {
     status: string;
 }
 
-const API_BASE = 'http://192.168.1.149:3000/api';
+const API_BASE = 'https://gateconfigserver.onrender.com/api';
 
 export const fetchCartOrders = async (token: string): Promise<Order[]> => {
     const res = await fetch(`${API_BASE}/orders`, {
