@@ -1,7 +1,7 @@
 
 import type React from "react"
 import { useContext, useState } from "react"
-import { createAnimation, IonModal, IonIcon, IonAlert } from "@ionic/react"
+import { createAnimation, IonModal, IonIcon, IonAlert,IonToast } from "@ionic/react"
 import { AuthContext } from "../../auth"
 import {
     logOutOutline,
@@ -15,12 +15,21 @@ import {
 } from "ionicons/icons"
 import { useHistory } from "react-router-dom"
 import "../theme/my-modal.css"
-
 export const MyModal: React.FC = () => {
     const [showModal, setShowModal] = useState(false)
     const { logout, token } = useContext(AuthContext)
     const history = useHistory()
     const [showAlert, setShowAlert] = useState(false)
+    const [showToast, setShowToast] = useState(false);
+    const [toastMessage, setToastMessage] = useState("");
+    const [toastColor, setToastColor] = useState<"success" | "danger">("success");
+
+    const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+    const showToastMsg = (message: string, color: "success" | "danger" = "success") => {
+        setToastMessage(message);
+        setToastColor(color);
+        setShowToast(true);
+    };
 
     const enterAnimation = (baseEl: any) => {
         const root = baseEl.shadowRoot
@@ -63,20 +72,21 @@ export const MyModal: React.FC = () => {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
-            })
+            });
 
             if (res.ok) {
-                alert("Contul tău a fost șters.")
-                logout?.()
+                showToastMsg("Contul tău a fost șters.", "success");
+                setTimeout(() => logout?.(), 2000); // așteaptă toast-ul înainte de logout
             } else {
-                const data = await res.json()
-                alert("Eroare: " + (data.message || "Nu s-a putut șterge contul."))
+                const data = await res.json();
+                showToastMsg("Eroare: " + (data.message || "Nu s-a putut șterge contul."), "danger");
             }
         } catch (err) {
-            console.error("Eroare ștergere cont:", err)
-            alert("Eroare de rețea.")
+            console.error("Eroare ștergere cont:", err);
+            showToastMsg("Eroare de rețea.", "danger");
         }
-    }
+    };
+
 
     const handleLogout = () => {
         setShowModal(false)
@@ -146,7 +156,7 @@ export const MyModal: React.FC = () => {
                                     </div>
                                 </button>
 
-                                <button className="enhanced-modal-action-button danger-button" onClick={() => setShowAlert(true)}>
+                                <button className="enhanced-modal-action-button danger-button" onClick={() => setShowDeleteAlert(true)}>
                                     <div className="enhanced-action-icon">
                                         <IonIcon icon={trashOutline} />
                                     </div>
@@ -161,23 +171,30 @@ export const MyModal: React.FC = () => {
                 </div>
 
                 <IonAlert
-                    isOpen={showAlert}
-                    header="Ești sigur?"
-                    message="Această acțiune este ireversibilă. Comenzile tale vor fi păstrate, dar contul va fi șters."
+                    isOpen={showDeleteAlert}
+                    onDidDismiss={() => setShowDeleteAlert(false)}
+                    header="Confirmare"
+                    message="Ești sigur că vrei să-ți ștergi contul?"
                     buttons={[
                         {
                             text: "Anulează",
                             role: "cancel",
-                            handler: () => setShowAlert(false),
                         },
                         {
                             text: "Șterge",
-                            role: "destructive",
                             handler: handleDeleteAccount,
                         },
                     ]}
-                    onDidDismiss={() => setShowAlert(false)}
                 />
+
+                <IonToast
+                    isOpen={showToast}
+                    onDidDismiss={() => setShowToast(false)}
+                    message={toastMessage}
+                    duration={2000}
+                    color={toastColor}
+                />
+
             </IonModal>
 
             {/* Enhanced Trigger Button */}

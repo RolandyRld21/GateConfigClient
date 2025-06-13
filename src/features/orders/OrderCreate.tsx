@@ -10,7 +10,8 @@ import {
     IonCheckbox,
     IonLoading,
     IonIcon,
-    IonToolbar
+    IonToolbar,
+    IonToast
 } from "@ionic/react"
 import type { RouteComponentProps } from "react-router"
 import { getGateById } from "../articles/articleApi"
@@ -43,6 +44,10 @@ const OrderCreate: React.FC<RouteComponentProps<{ id: string }>> = ({ match, his
     const [totalPrice, setTotalPrice] = useState<number>(0)
     const [isExtrasOpen, setIsExtrasOpen] = useState(false);
     const text = gate?.text?.toLowerCase() || "";
+    const [toastMessage, setToastMessage] = useState("");
+    const [toastColor, setToastColor] = useState<"success" | "danger">("success");
+    const [showToast, setShowToast] = useState(false);
+
     const visibleOptionIndices = text.includes("auto")
         ? [0, 1, 2, 3, 4]
         : text.includes("pieton")
@@ -50,7 +55,11 @@ const OrderCreate: React.FC<RouteComponentProps<{ id: string }>> = ({ match, his
             : text.includes("gard") || text.includes("balustr")
                 ? [3]
                 : [];
-
+    const showToastMsg = (message: string, color: "success" | "danger" = "success") => {
+        setToastMessage(message);
+        setToastColor(color);
+        setShowToast(true);
+    };
     const optionList = [
         {
             key: "option1",
@@ -107,8 +116,8 @@ const OrderCreate: React.FC<RouteComponentProps<{ id: string }>> = ({ match, his
     }, [gate, width, height, options])
 
     const handleSubmit = async () => {
-        if (!token || !gate) return
-        setSubmitting(true)
+        if (!token || !gate) return;
+        setSubmitting(true);
 
         try {
             await createOrder(token, {
@@ -122,15 +131,18 @@ const OrderCreate: React.FC<RouteComponentProps<{ id: string }>> = ({ match, his
                 option3: options[2],
                 option4: options[3],
                 option5: options[4],
-            })
-            alert("Produs adăugat în coș!")
-            history.replace("/articlesClient")
+            });
+
+            showToastMsg("Produs adăugat în coș!", "success");
+            setTimeout(() => history.replace("/articlesClient"), 2000); // așteaptă toastul 2s
         } catch (e) {
-            console.error("Eroare la salvarea comenzii:", e)
-            alert("A apărut o eroare. Încearcă din nou.")
+            console.error("Eroare la salvarea comenzii:", e);
+            showToastMsg("A apărut o eroare. Încearcă din nou.", "danger");
         }
-        setSubmitting(false)
-    }
+
+        setSubmitting(false);
+    };
+
     useEffect(() => {
         if (!options[0] && options[4]) {
             const newOptions = [...options];
@@ -450,6 +462,13 @@ const OrderCreate: React.FC<RouteComponentProps<{ id: string }>> = ({ match, his
                         </div>
                     </div>
                 )}
+                <IonToast
+                    isOpen={showToast}
+                    onDidDismiss={() => setShowToast(false)}
+                    message={toastMessage}
+                    duration={2000}
+                    color={toastColor}
+                />
             </IonContent>
             <WhatsAppButton />
         </IonPage>

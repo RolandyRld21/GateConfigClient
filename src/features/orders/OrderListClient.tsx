@@ -21,6 +21,8 @@ import {
     IonFabButton,
     IonInput,
     IonTitle,
+    IonToast,
+    IonAlert
 } from "@ionic/react"
 import type { RouteComponentProps } from "react-router"
 import {
@@ -59,6 +61,17 @@ const OrderListClient: React.FC<RouteComponentProps<{ final_cart_id?: string }>>
     const [fetchingError, setFetchingError] = useState<any>(null)
     const [reviewedOrders, setReviewedOrders] = useState<Record<number, { id: number; score: number; text: string }>>({})
     const [isExtrasOpen, setIsExtrasOpen] = useState(false)
+    const [showToast, setShowToast] = useState(false);
+    const [toastMessage, setToastMessage] = useState("");
+    const [toastColor, setToastColor] = useState<"success" | "danger">("success");
+
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [reviewToDelete, setReviewToDelete] = useState<number | null>(null);
+    const showToastMsg = (message: string, color: "success" | "danger" = "success") => {
+        setToastMessage(message);
+        setToastColor(color);
+        setShowToast(true);
+    };
 
     useEffect(() => {
         if (!isAuthenticated) {
@@ -146,27 +159,35 @@ const OrderListClient: React.FC<RouteComponentProps<{ final_cart_id?: string }>>
     };
 
 
-    const handleDeleteReview = async (reviewId: number) => {
-        if (!token) return
-        const confirm = window.confirm("Ești sigur că vrei să ștergi această recenzie?")
-        if (!confirm) return
+    const handleDeleteReview = (reviewId: number) => {
+        setReviewToDelete(reviewId);
+        setShowConfirm(true); // deschide confirmarea
+    };
+    const confirmDelete = async () => {
+        if (!token || reviewToDelete === null) return;
 
         try {
-            await deleteReview(token, reviewId)
+            await deleteReview(token, reviewToDelete);
             setReviewedOrders((prev) => {
-                const updated = { ...prev }
+                const updated = { ...prev };
                 Object.keys(updated).forEach((key) => {
-                    if (updated[Number.parseInt(key)].id === reviewId) {
-                        delete updated[Number.parseInt(key)]
+                    if (updated[Number.parseInt(key)].id === reviewToDelete) {
+                        delete updated[Number.parseInt(key)];
                     }
-                })
-                return updated
-            })
+                });
+                return updated;
+            });
+
+            showToastMsg("Recenzia a fost ștearsă cu succes!", "success");
         } catch (err) {
-            console.error("Failed to delete review:", err)
-            alert("Nu s-a putut șterge recenzia.")
+            console.error("Failed to delete review:", err);
+            showToastMsg("Nu s-a putut șterge recenzia.", "danger");
         }
-    }
+
+        setReviewToDelete(null);
+        setShowConfirm(false);
+    };
+
 
     const renderStars = (rating: number) => {
         return Array.from({ length: 5 }, (_, i) => (
@@ -534,6 +555,31 @@ const OrderListClient: React.FC<RouteComponentProps<{ final_cart_id?: string }>>
                 </IonModal>
 
             </IonContent>
+            <IonAlert
+                isOpen={showConfirm}
+                onDidDismiss={() => setShowConfirm(false)}
+                header="Confirmare"
+                message="Ești sigur că vrei să ștergi această recenzie?"
+                buttons={[
+                    {
+                        text: "Anulează",
+                        role: "cancel",
+                    },
+                    {
+                        text: "Șterge",
+                        handler: confirmDelete,
+                    },
+                ]}
+            />
+
+            <IonToast
+                isOpen={showToast}
+                onDidDismiss={() => setShowToast(false)}
+                message={toastMessage}
+                duration={2000}
+                color={toastColor}
+            />
+
             <WhatsAppButton />
         </IonPage>
     )

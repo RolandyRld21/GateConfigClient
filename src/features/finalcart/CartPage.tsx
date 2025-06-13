@@ -16,7 +16,7 @@ import {
     IonInput,
     IonIcon,
     IonToolbar,
-    IonTitle,
+    IonTitle, IonToast,
 } from "@ionic/react"
 import { AuthContext } from "../auth"
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js"
@@ -87,6 +87,15 @@ const CartPage: React.FC = () => {
     const stripe = useStripe()
     const elements = useElements()
     const [isExtrasOpen, setIsExtrasOpen] = useState(false)
+    const [toastMessage, setToastMessage] = useState("");
+    const [toastColor, setToastColor] = useState<"success" | "danger">("success");
+    const [showToast, setShowToast] = useState(false);
+
+    const showToastMsg = (message: string, color: "success" | "danger" = "success") => {
+        setToastMessage(message);
+        setToastColor(color);
+        setShowToast(true);
+    };
 
     useEffect(() => {
         if (token) {
@@ -114,14 +123,14 @@ const CartPage: React.FC = () => {
     }, [selectedAddressId, addresses])
 
     const handleAddAddress = async () => {
-        if (!token) return
+        if (!token) return;
 
         try {
-            setLoading(true)
-            const created = await addAddress(token, newAddress)
-            if (!created.id) throw new Error("Nu s-a putut crea adresa")
+            setLoading(true);
+            const created = await addAddress(token, newAddress);
+            if (!created.id) throw new Error("Nu s-a putut crea adresa");
 
-            setShowAddressModal(false)
+            setShowAddressModal(false);
             setNewAddress({
                 street: "",
                 number: "",
@@ -132,20 +141,21 @@ const CartPage: React.FC = () => {
                 floor: "",
                 stair: "",
                 phone: "",
-            })
+            });
 
-            const updated = await fetchAddresses(token)
-            setAddresses(updated)
-            setSelectedAddressId(created.id)
+            const updated = await fetchAddresses(token);
+            setAddresses(updated);
+            setSelectedAddressId(created.id);
 
-            alert("Adresa a fost adăugată cu succes!")
+            showToastMsg("Adresa a fost adăugată cu succes!", "success");
         } catch (error) {
-            console.error("Eroare la salvarea adresei:", error)
-            alert("Eroare la salvarea adresei. Verificați datele și încercați din nou.")
+            console.error("Eroare la salvarea adresei:", error);
+            showToastMsg("Eroare la salvarea adresei. Verificați datele și încercați din nou.", "danger");
         } finally {
-            setLoading(false)
+            setLoading(false);
         }
-    }
+    };
+
 
     const handleDeleteOrder = async (orderId: number) => {
         try {
@@ -190,14 +200,17 @@ const CartPage: React.FC = () => {
 
     const finalizeCart = async () => {
         try {
-            const data = await finalizeCartRequest(token, selectedAddressId!, deliveryFee)
-            alert(data.message)
-            const updated = await fetchCartOrders(token)
-            setOrders(updated)
+            const data = await finalizeCartRequest(token, selectedAddressId!, deliveryFee);
+            showToastMsg(data.message, "success");
+
+            const updated = await fetchCartOrders(token);
+            setOrders(updated);
         } catch (err) {
-            console.error("Eroare la finalizarea comenzii:", err)
+            console.error("Eroare la finalizarea comenzii:", err);
+            showToastMsg("A apărut o eroare. Încearcă din nou.", "danger");
         }
-    }
+    };
+
 
     const subtotal = orders.reduce((acc, curr) => acc + (curr.total_price || 0), 0)
 
@@ -630,6 +643,14 @@ const CartPage: React.FC = () => {
                     </IonContent>
                 </IonModal>
             </IonContent>
+            <IonToast
+                isOpen={showToast}
+                onDidDismiss={() => setShowToast(false)}
+                message={toastMessage}
+                duration={2000}
+                color={toastColor}
+            />
+
             <WhatsAppButton />
         </IonPage>
     )
