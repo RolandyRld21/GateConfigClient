@@ -214,7 +214,7 @@ const SignUp: React.FC = () => {
                             {/* Trust badge */}
                             <div className="trust-badge">
                                 <div className="status-indicator"></div>
-                                <span>Join 10,000+ satisfied customers</span>
+                                <span>Join 100+ satisfied customers</span>
                             </div>
 
                             <h1 className="hero-title">

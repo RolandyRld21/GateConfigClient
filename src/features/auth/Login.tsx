@@ -179,7 +179,7 @@ export const Login: React.FC = React.memo(() => {
                             {/* Trust badge */}
                             <div className="trust-badge">
                                 <div className="status-indicator"></div>
-                                <span>Trusted by 10,000+ customers</span>
+                                <span>Trusted by 500+ customers</span>
                             </div>
 
                             <h1 className="hero-title">
