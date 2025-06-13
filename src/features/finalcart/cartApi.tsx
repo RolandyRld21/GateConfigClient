@@ -9,7 +9,7 @@ export interface Address {
 }
 
 export interface Order {
-    gates?: { text: string }; // <--- add this line!
+    gates?: { text: string };
     id: number;
     gate_id: number;
     total_price: number;

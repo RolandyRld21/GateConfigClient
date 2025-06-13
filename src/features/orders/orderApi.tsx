@@ -13,7 +13,7 @@ export const getOrder: (token: string, id: number) => Promise<IOrderProps> = (to
 };
 
 export const createOrder: (token: string, order: IOrderProps) => Promise<IOrderProps> = (token, order) => {
-    console.log("Sending order to backend:", order); // DEBUG
+    console.log("Sending order to backend:", order);
     return withLogs(axios.post(orderUrl, order, authConfig(token)), 'createOrder');
 };
 
@@ -36,7 +36,7 @@ export const deleteOrder = (token: string, id: number): Promise<void> => {
     );
 };
 interface IOrderMessage {
-    type: string; // e.g., 'created', 'updated', 'deleted'
+    type: string;
     payload: IOrderProps;
 }
 

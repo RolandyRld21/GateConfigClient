@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { useState, useEffect } from "react"
@@ -46,7 +45,7 @@ const OurWork: React.FC = () => {
     const [isAutoPlay, setIsAutoPlay] = useState(true)
     const [selectedCategory, setSelectedCategory] = useState("Toate")
 
-    // Date de test pentru proiecte
+
     const projects: Project[] = [
         {
             id: 1,
@@ -131,7 +130,7 @@ const OurWork: React.FC = () => {
     const filteredProjects =
         selectedCategory === "Toate" ? projects : projects.filter((project) => project.category === selectedCategory)
 
-    // Auto-play pentru sliderul din modal
+
     useEffect(() => {
         if (isModalOpen && selectedProject && isAutoPlay) {
             const interval = setInterval(() => {

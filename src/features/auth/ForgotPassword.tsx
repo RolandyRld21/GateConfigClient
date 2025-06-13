@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { useCallback, useState } from "react"
@@ -63,7 +62,7 @@ const ForgotPassword: React.FC = () => {
             const result = await response.json()
             if (response.ok) {
                 setResetSuccess(true)
-                // Redirect to login after 3 seconds
+
                 setTimeout(() => {
                     history.push("/login")
                 }, 3000)

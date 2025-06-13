@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { memo } from "react"
@@ -25,12 +24,10 @@ const Article: React.FC<IArticlePropsExt> = ({ _id, text, isUseful, onEdit, imag
                             <IonIcon icon={pricetagOutline} />
                         </div>
                     )}
-
                     {/* Status Badge */}
                     <div className={`article-status-badge ${isUseful ? "status-available" : "status-unavailable"}`}>
                         <IonIcon icon={isUseful ? checkmarkCircle : closeCircle} />
                     </div>
-
                     {/* Hover Overlay */}
                     <div className="article-hover-overlay">
                         <div className="hover-content">

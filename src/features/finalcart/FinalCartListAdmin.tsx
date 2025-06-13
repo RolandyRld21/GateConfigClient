@@ -93,12 +93,12 @@ const FinalCartListAdmin: React.FC<{ history: any }> = ({ history }) => {
     const getFilteredAndSortedCarts = () => {
         let filtered = [...carts]
 
-        // Filter by status
+
         if (statusFilter !== "all") {
             filtered = filtered.filter((cart) => cart.status === statusFilter)
         }
 
-        // Sort
+
         filtered.sort((a, b) => {
             switch (sortOrder) {
                 case "newest":

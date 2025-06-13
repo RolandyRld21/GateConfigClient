@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { useState, useCallback, useContext } from "react"
@@ -52,22 +51,11 @@ const ChangePassword: React.FC = () => {
 
     const { email, token } = useContext(AuthContext)
 
-    // Password validation
-    const validatePassword = (password: string): string[] => {
-        const errors: string[] = []
-        if (password.length < 8) errors.push("Parola trebuie să aibă cel puțin 8 caractere")
-        return errors
-    }
-
-
-
-
-    // Handle password change
     const handleChangePassword = useCallback(async () => {
         setError(null)
         setSuccess(null)
 
-        // Validation
+
         if (!currentPassword) {
             setError("Parola curentă este obligatorie")
             return

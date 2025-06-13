@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { useContext, useEffect, useState, useMemo } from "react"
@@ -40,7 +39,6 @@ import { useLocalStorageCache, useArticleCache } from "../shared/hooks/use-local
 
 const log = getLogger("ArticleList")
 
-// Filter state interface for better type safety
 interface FilterState {
     searchArticle: string
     sortOrder: string
@@ -65,18 +63,14 @@ const OptimizedArticleList: React.FC<RouteComponentProps> = ({ history }) => {
     const { networkStatus } = useNetwork()
     const { getCachedArticles, setCachedArticles, clearCache } = useArticleCache()
 
-    // Persistent filter state using localStorage
     const [filterState, setFilterState] = useLocalStorageCache<FilterState>("article_filters", defaultFilterState)
 
-    // UI state (not persisted)
     const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false)
     const [isFiltersOpen, setIsFiltersOpen] = useLocalStorageCache("filters_sidebar_open", false)
     const [isExtrasOpen, setIsExtrasOpen] = useState(false)
 
-    // Destructure filter state for easier access
     const { searchArticle, sortOrder, categoryFilter, priceRange, viewMode, articlesIndex } = filterState
 
-    // Update individual filter values
     const updateFilter = <K extends keyof FilterState>(key: K, value: FilterState[K]) => {
         setFilterState((prev) => ({ ...prev, [key]: value }))
     }
@@ -136,33 +130,27 @@ const OptimizedArticleList: React.FC<RouteComponentProps> = ({ history }) => {
         }
     }, [isAuthenticated])
 
-    // Memoized filtered and sorted articles for better performance
+
     const filteredArticles = useMemo(() => {
         if (!articles) return []
-
         let selectedArticles = [...articles]
-
-        // Search by text
         if (searchArticle) {
             selectedArticles = selectedArticles.filter((article) =>
                 article.text.toLowerCase().includes(searchArticle.toLowerCase()),
             )
         }
-
-        // Filter by category
         if (categoryFilter !== "all") {
             selectedArticles = selectedArticles.filter((article) =>
                 article.text.toLowerCase().includes(categoryFilter.toLowerCase()),
             )
         }
 
-        // Filter by price range
         selectedArticles = selectedArticles.filter((article) => {
             const price = article.price || 0
             return price >= priceRange[0] && price <= priceRange[1]
         })
 
-        // Sort by price
+
         if (sortOrder === "asc") {
             selectedArticles.sort((a, b) => (a.price || 0) - (b.price || 0))
         } else if (sortOrder === "desc") {
@@ -174,12 +162,10 @@ const OptimizedArticleList: React.FC<RouteComponentProps> = ({ history }) => {
         return selectedArticles
     }, [articles, searchArticle, sortOrder, categoryFilter, priceRange])
 
-    // Memoized partial list for pagination
     const partialListOfArticles = useMemo(() => {
         return filteredArticles.slice(0, articlesIndex)
     }, [filteredArticles, articlesIndex])
 
-    // Cache articles when they're loaded
     useEffect(() => {
         if (articles && articles.length > 0) {
             setCachedArticles(articles)
@@ -201,16 +187,6 @@ const OptimizedArticleList: React.FC<RouteComponentProps> = ({ history }) => {
         setDisableInfiniteScroll(false)
     }
 
-    const activeFiltersCount = () => {
-        let count = 0
-        if (categoryFilter !== "all") count++
-        if (sortOrder !== "none") count++
-        if (priceRange[0] !== 0 || priceRange[1] !== 10000) count++
-        if (searchArticle) count++
-        return count
-    }
-
-    // Clear cache when user manually refreshes
     const handleRefresh = () => {
         clearCache()
         window.location.reload()

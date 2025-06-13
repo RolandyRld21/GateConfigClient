@@ -1,6 +1,6 @@
 export interface IOrderProps {
-    id?: number;           // optional for new orders
-    user_id?: number;      // backend can fill this from session
+    id?: number;
+    user_id?: number;
     gate_id: number;
     width: number;
     height: number;
@@ -10,9 +10,9 @@ export interface IOrderProps {
     option3?: boolean;
     option4?: boolean;
     option5?: boolean;
-    total_price?: number;  // computed
+    total_price?: number;
     latitude?: string;
     longitude?: string;
-    created_at?: string;   // timestamp
+    created_at?: string;
     gates?:{text:string};
 }

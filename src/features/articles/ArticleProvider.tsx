@@ -18,7 +18,7 @@ export interface IArticlesState {
     saving: boolean;
     savingError?: Error | null;
     saveArticle?: SaveArticleFn;
-    refetchArticles?: () => void;  // <-- Add this line
+    refetchArticles?: () => void;
 
 }
 
@@ -171,7 +171,7 @@ export const ArticleProvider: React.FC<IArticleProviderProps> = ({ children }) =
                 }
 
                 log('fetchArticles succeeded');
-                log('Fetched articles:', articles); // Log all articles here
+                log('Fetched articles:', articles);
 
                 if(!canceled){
                     dispatch({type: FETCH_ARTICLES_SUCCEEDED, payload: { articles }});

@@ -37,7 +37,7 @@ const ResourcesOnMap: React.FC<RouteComponentProps> = ({history}) => {
 
             setCoordinates(coords);
         }
-    }, [articles]); // Ensure that this effect runs when 'articles' changes
+    }, [articles]);
 
     log('render', coordinates);
 

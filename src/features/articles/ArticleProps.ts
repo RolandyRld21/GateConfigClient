@@ -7,7 +7,7 @@ export interface IArticleProps {
     lat?: string;
     long?: string;
     price?: number;
-    text: string;  // Make price optional
+    text: string;
     version?: number;
     option1?: number;
     option2?: number;

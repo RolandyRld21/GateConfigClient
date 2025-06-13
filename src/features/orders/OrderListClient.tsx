@@ -1,4 +1,3 @@
-"use client"
 
 import React, {useCallback} from "react"
 import { useContext, useEffect, useState } from "react"
@@ -139,7 +138,6 @@ const OrderListClient: React.FC<RouteComponentProps<{ final_cart_id?: string }>>
             setShowReviewModal(false);
             setScore(0);
             setText('');
-            // În loc de history.push, refaci fetch-ul:
             await fetchClientOrders();
         } catch (error) {
             console.error('Failed to submit review', error);

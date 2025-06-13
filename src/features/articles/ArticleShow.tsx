@@ -1,5 +1,3 @@
-"use client"
-
 import type React from "react"
 import { useContext, useEffect, useState } from "react"
 import { IonContent, IonHeader, IonPage, IonToolbar, IonIcon, IonFooter } from "@ionic/react"

@@ -62,7 +62,7 @@ const SEBES_COORDS = { lat: 45.9595, lon: 23.5733 }
 
 const CartPage: React.FC = () => {
     const { token } = useContext(AuthContext)
-    const history = useHistory() // Adăugat useHistory hook
+    const history = useHistory()
     const [orders, setOrders] = useState<Order[]>([])
     const [addresses, setAddresses] = useState<Address[]>([])
     const [selectedAddressId, setSelectedAddressId] = useState<number | null>(null)

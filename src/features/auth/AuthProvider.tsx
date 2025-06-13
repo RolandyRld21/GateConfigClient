@@ -112,7 +112,7 @@ export const AuthProvider: React.FC<IAuthProviderProps> = ({ children }) => {
                 });
 
                 const { email, password } = state;
-                const { token, role } = await loginApi(email, password); // get role directly from login response
+                const { token, role } = await loginApi(email, password);
 
                 if (canceled) return;
 

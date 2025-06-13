@@ -1,12 +1,9 @@
-"use client"
 
 import type React from "react"
 import { memo, useCallback, useContext, useEffect, useState } from "react"
 import {
     IonActionSheet,
     IonContent,
-    IonFab,
-    IonFabButton,
     IonHeader,
     IonIcon,
     IonInput,
@@ -25,10 +22,8 @@ import {
     saveOutline,
     trashOutline,
     cameraOutline,
-    imageOutline,
     pricetagOutline,
     documentTextOutline,
-    checkmarkCircleOutline,
     starOutline,
     layersOutline,
     locate,
@@ -40,12 +35,10 @@ import type { IArticleProps } from "./ArticleProps"
 import { usePhotos } from "../core/usePhotos"
 import { deleteArticle } from "./articleApi"
 import { AuthContext } from "../auth"
-import { MyModal } from "../shared/components/MyModal"
 import { logoInstagram, logoFacebook } from "ionicons/icons"
 import "../shared/theme/enhanced-filters-styles.css"
 import {MyModalAdmin} from "../shared/components/MyModalAdmin";
 import "../shared/theme/article=edit-style.css"
-import WhatsAppButton from "../shared/components/WhatsAppButton";
 const log = getLogger("ArticleEdit")
 
 interface IArticleEditProps extends RouteComponentProps<{ id?: string }> {}
@@ -91,7 +84,6 @@ const ArticleEdit: React.FC<IArticleEditProps> = ({ history, match }) => {
         } else if (isEditMode) {
             setFound(false)
         } else {
-            // Create mode - reset all fields
             setText("")
             setPrice(undefined)
             setDescription("")

@@ -1,4 +1,3 @@
-"use client"
 
 import { useState } from "react"
 
@@ -27,7 +26,7 @@ export function useLocalStorageCache<T>(key: string, defaultValue: T) {
 }
 
 export function useArticleCache() {
-    const CACHE_DURATION = 5 * 60 * 1000 // 5 minute
+    const CACHE_DURATION = 5 * 60 * 1000
 
     const getCachedArticles = () => {
         try {
@@ -65,15 +64,13 @@ export function useArticleCache() {
     return { getCachedArticles, setCachedArticles, clearCache }
 }
 
-// Nou: Salvează istoricul de vizualizare al produselor
+
 export function useRecentlyViewedProducts(maxItems = 10) {
     const [recentlyViewed, setRecentlyViewed] = useLocalStorageCache<string[]>("recently_viewed_products", [])
 
     const addProduct = (productId: string) => {
         setRecentlyViewed((prev) => {
-            // Elimină produsul dacă există deja pentru a-l muta la început
             const filtered = prev.filter((id) => id !== productId)
-            // Adaugă produsul la început și limitează lista la maxItems
             return [productId, ...filtered].slice(0, maxItems)
         })
     }
@@ -81,7 +78,6 @@ export function useRecentlyViewedProducts(maxItems = 10) {
     return { recentlyViewed, addProduct }
 }
 
-// Nou: Salvează preferințele de vizualizare
 export function useClientPreferences() {
     return useLocalStorageCache("client_preferences", {
         viewMode: "grid" as "grid" | "list",

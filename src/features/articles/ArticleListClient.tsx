@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { useContext, useEffect, useState, useMemo } from "react"
@@ -30,7 +29,6 @@ import {
     starOutline,
     grid,
     cartOutline,
-    eyeOutline,
 } from "ionicons/icons"
 import Article from "./Article"
 import { getLogger } from "../core"
@@ -51,7 +49,6 @@ import WhatsAppButton from "../shared/components/WhatsAppButton";
 
 const log = getLogger("ArticleListClient")
 
-// Interfață pentru starea filtrelor
 interface FilterState {
     searchArticle: string
     sortOrder: string
@@ -75,28 +72,22 @@ const OptimizedArticleListClient: React.FC<RouteComponentProps> = ({ history }) 
     const { getCachedArticles, setCachedArticles, clearCache } = useArticleCache()
     const { recentlyViewed } = useRecentlyViewedProducts()
 
-    // Stare persistentă pentru filtre
     const [filterState, setFilterState] = useLocalStorageCache<FilterState>("client_article_filters", defaultFilterState)
 
-    // Preferințe client (inclusiv viewMode)
     const [clientPreferences, setClientPreferences] = useClientPreferences()
 
-    // Stare UI (nepersistentă)
     const [disableInfiniteScroll, setDisableInfiniteScroll] = useState<boolean>(false)
     const [isFiltersOpen, setIsFiltersOpen] = useLocalStorageCache("client_filters_sidebar_open", false)
     const [isExtrasOpen, setIsExtrasOpen] = useState(false)
     const [partialListOfArticles, setPartialListOfArticles] = useState<IArticleProps[]>([])
 
-    // Destructurare pentru acces mai ușor
     const { searchArticle, sortOrder, categoryFilter, priceRange, articlesIndex } = filterState
     const { viewMode } = clientPreferences
 
-    // Actualizare valori individuale de filtrare
     const updateFilter = <K extends keyof FilterState>(key: K, value: FilterState[K]) => {
         setFilterState((prev) => ({ ...prev, [key]: value }))
     }
 
-    // Actualizare preferințe client
     const updatePreference = <K extends keyof typeof clientPreferences>(key: K, value: (typeof clientPreferences)[K]) => {
         setClientPreferences((prev) => ({ ...prev, [key]: value }))
     }
@@ -156,33 +147,28 @@ const OptimizedArticleListClient: React.FC<RouteComponentProps> = ({ history }) 
         }
     }, [isAuthenticated])
 
-    // Articole filtrate și sortate (memorizate pentru performanță)
     const filteredArticles = useMemo(() => {
         if (!articles) return []
 
         let selectedArticles = [...articles]
 
-        // Căutare după text
         if (searchArticle) {
             selectedArticles = selectedArticles.filter((article) =>
                 article.text.toLowerCase().includes(searchArticle.toLowerCase()),
             )
         }
 
-        // Filtrare după categorie
         if (categoryFilter !== "all") {
             selectedArticles = selectedArticles.filter((article) =>
                 article.text.toLowerCase().includes(categoryFilter.toLowerCase()),
             )
         }
 
-        // Filtrare după interval de preț
         selectedArticles = selectedArticles.filter((article) => {
             const price = article.price || 0
             return price >= priceRange[0] && price <= priceRange[1]
         })
 
-        // Sortare după preț
         if (sortOrder === "asc") {
             selectedArticles.sort((a, b) => (a.price || 0) - (b.price || 0))
         } else if (sortOrder === "desc") {
@@ -194,12 +180,10 @@ const OptimizedArticleListClient: React.FC<RouteComponentProps> = ({ history }) 
         return selectedArticles
     }, [articles, searchArticle, sortOrder, categoryFilter, priceRange])
 
-    // Lista parțială pentru paginare (memorizată)
     useEffect(() => {
         setPartialListOfArticles(filteredArticles.slice(0, articlesIndex))
     }, [filteredArticles, articlesIndex])
 
-    // Cache articole când sunt încărcate
     useEffect(() => {
         if (articles && articles.length > 0) {
             setCachedArticles(articles)
@@ -230,7 +214,6 @@ const OptimizedArticleListClient: React.FC<RouteComponentProps> = ({ history }) 
         return count
     }
 
-    // Curăță cache-ul când utilizatorul reîmprospătează manual
     const handleRefresh = () => {
         clearCache()
         window.location.reload()

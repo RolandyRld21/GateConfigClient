@@ -8,7 +8,6 @@ import {
 } from '@ionic/react';
 import { locate, logoFacebook, logoInstagram } from 'ionicons/icons';
 import '../shared/theme/Login-page.css'
-import {MyModal} from "../shared/components/MyModal";
 import {MyModalAdmin} from "../shared/components/MyModalAdmin";
 
 interface Props {

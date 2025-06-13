@@ -1,4 +1,3 @@
-"use client"
 
 import type React from "react"
 import { useCallback, useState } from "react"
@@ -37,7 +36,7 @@ interface ISignUpState {
     email?: string
 }
 
-// ✅ Asigură-te că exportul este corect
+
 const SignUp: React.FC = () => {
     const history = useHistory()
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -50,7 +49,7 @@ const SignUp: React.FC = () => {
 
     const { username, password, email } = state
 
-    // Fixed onChange handlers
+
     const handleUsernameChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             setState({
@@ -99,7 +98,7 @@ const SignUp: React.FC = () => {
             if (data.success) {
                 log("Sign up successful")
                 setSignUpSuccess(true)
-                // Redirect to login after 2 seconds
+
                 setTimeout(() => {
                     history.push("/login")
                 }, 2000)

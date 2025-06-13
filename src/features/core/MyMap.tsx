@@ -14,14 +14,14 @@ interface coordinatesInterface {
 }
 
 const MyMap: React.FC<MyMapProps> = ({ onMapClick, coordinatesToAdd }) => {
-    const mapRef = useRef<HTMLElement>(null);  // Ref for the map container element
-    const googleMapRef = useRef<GoogleMap | null>(null);  // Ref for the GoogleMap instance
-    const markersRef = useRef<any[]>([]);  // Ref to store marker objects
+    const mapRef = useRef<HTMLElement>(null);
+    const googleMapRef = useRef<GoogleMap | null>(null);
+    const markersRef = useRef<any[]>([]);
 
     useEffect(() => {
         let canceled = false;
 
-        // Initialize map after the component mounts
+
         const initializeMap = async () => {
             if (!mapRef.current || canceled) return;
 
@@ -29,9 +29,9 @@ const MyMap: React.FC<MyMapProps> = ({ onMapClick, coordinatesToAdd }) => {
                 const { coords } = await Geolocation.getCurrentPosition();
                 const { latitude: lat, longitude: lng } = coords;
 
-                // Create Google Map instance
+
                 if (googleMapRef.current) {
-                    await googleMapRef.current.removeAllMapListeners(); // Remove any existing listeners
+                    await googleMapRef.current.removeAllMapListeners();
                     googleMapRef.current = null;
                 }
 
@@ -49,7 +49,6 @@ const MyMap: React.FC<MyMapProps> = ({ onMapClick, coordinatesToAdd }) => {
 
                 const googleMap = googleMapRef.current;
 
-                // Add any pre-existing markers
                 if (coordinatesToAdd) {
                     for (let coord of coordinatesToAdd) {
                         await addMarker(coord.lat, coord.long, googleMap);
@@ -57,9 +56,8 @@ const MyMap: React.FC<MyMapProps> = ({ onMapClick, coordinatesToAdd }) => {
                 }
 
                 if (googleMap) {
-                    // Set up map click listener to add a new marker
                     await googleMap.setOnMapClickListener(async ({ latitude, longitude }) => {
-                        await clearAllMarkers(googleMap);  // Clear existing markers
+                        await clearAllMarkers(googleMap);
                         await addMarker(latitude, longitude, googleMap);
                         onMapClick && onMapClick({ lat: latitude, long: longitude });
                     });
@@ -69,34 +67,34 @@ const MyMap: React.FC<MyMapProps> = ({ onMapClick, coordinatesToAdd }) => {
             }
         };
 
-        // Add a marker to the map
+
         const addMarker = async (latitude: number, longitude: number, googleMap: GoogleMap | null) => {
             if (!googleMap) return;
             const marker = await googleMap.addMarker({
                 coordinate: { lat: latitude, lng: longitude },
                 title: 'My location',
             });
-            markersRef.current.push(marker); // Store marker object
+            markersRef.current.push(marker);
             console.log('New marker added', marker);
         };
 
-        // Clear all markers from the map
+
         const clearAllMarkers = async (googleMap: GoogleMap) => {
             for (const marker of markersRef.current) {
                 try {
-                    await googleMap.removeMarker(marker);  // Remove each marker
+                    await googleMap.removeMarker(marker);
                 } catch (err) {
                     console.error('Error removing marker', err);
                 }
             }
-            markersRef.current = [];  // Clear marker references
+            markersRef.current = [];
             console.log('All markers cleared');
         };
 
-        // Initialize map on component mount
+
         initializeMap();
 
-        // Cleanup function to remove map listeners on component unmount
+
         return () => {
             canceled = true;
             if (googleMapRef.current) {

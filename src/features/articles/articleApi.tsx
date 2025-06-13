@@ -2,10 +2,7 @@ import axios from 'axios';
 import {authConfig, baseUrl, getLogger, withLogs} from '../core';
 import { IArticleProps} from "./ArticleProps";
 
-// const log = getLogger('articleApi');
-
 const articleUrl = `https://${baseUrl}/api/article`;
-const getAllArticlesUrl = `https://${baseUrl}/api//article/all`;
 
 export const getArticles: (token : string) => Promise<IArticleProps[]> = (token) => {
     return withLogs(axios.get(articleUrl, authConfig(token)), 'getArticles');
@@ -45,13 +42,9 @@ export const getGateById = (token: string, id: number): Promise<IArticleProps> =
 };
 
 
-
-
-
 export const getAllArticles: (token: string) => Promise<IArticleProps[]> = (token) => {
     return withLogs(axios.get(`${articleUrl}/all`, authConfig(token)), 'getAllArticles');
 }
-
 
 interface IMessageData {
     type: string;

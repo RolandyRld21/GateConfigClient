@@ -43,7 +43,7 @@ const ReviewUs: React.FC = () => {
     const [reviews, setReviews] = useState<any[]>([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
-    const [limit, setLimit] = useState(5) // Limita dinamică
+    const [limit, setLimit] = useState(5)
     const [sortField, setSortField] = useState<"date" | "score">("date")
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc")
     const [searchTerm, setSearchTerm] = useState("")
@@ -60,8 +60,8 @@ const ReviewUs: React.FC = () => {
             setReviews(data)
             setPage(pageNumber)
 
-            // Calculează totalul de pagini (poți să iei din backend dacă e disponibil)
-            const totalReviews = 25 // TODO: ia din backend
+
+            const totalReviews = 25
             setTotalPages(Math.ceil(totalReviews / limit))
         } catch (err) {
             console.error("Eroare la încărcare pagină:", err)

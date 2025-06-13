@@ -47,7 +47,7 @@ export const MyModalAdmin: React.FC = () => {
 
 
     const handleOrderHistoryAdmin = () => {
-        history.push('/admin-FinalCartList'); // ✅ Replace with your actual route
+        history.push('/admin-FinalCartList');
     };
     const handleAllUsersAdmin = ()=>{
         history.push('/admin-UserList');

@@ -1,4 +1,3 @@
-"use client"
 
 import React, { useCallback, useContext, useEffect } from "react"
 import { useState } from "react"
@@ -35,7 +34,7 @@ interface ILoginState {
 }
 
 export const Login: React.FC = React.memo(() => {
-    const history = useHistory() // ✅ Folosim useHistory în loc de props
+    const history = useHistory()
     const { isAuthenticated, isAuthenticating, login, authenticationError, role } = useContext(AuthContext)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
@@ -44,7 +43,7 @@ export const Login: React.FC = React.memo(() => {
 
     const { email, password } = state
 
-    // Fixed onChange handlers
+
     const handlePasswordChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             setState({
@@ -70,7 +69,7 @@ export const Login: React.FC = React.memo(() => {
         login?.(email, password)
     }, [email, password, login])
 
-    // ✅ Folosim history.push() cu useHistory
+
     const handleSignUpRedirect = useCallback(() => {
         log("Redirecting to SignUp...")
         history.push("/signup")
@@ -97,7 +96,7 @@ export const Login: React.FC = React.memo(() => {
         history.push("/contact")
     }, [history])
 
-    // ✅ Folosim history.push() în useEffect
+
     useEffect(() => {
         if (isAuthenticated) {
             log(`User is authenticated with role: ${role}`)

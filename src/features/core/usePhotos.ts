@@ -14,12 +14,11 @@ export function usePhotos() {
     const [currentPhoto, setCurrentPhoto] = useState<MyPhoto>();
     const { getPhoto } = useCamera();
     const { readFile, writeFile, deleteFile } = useFilesystem();
-    // const { get, set } = usePreferences();
-    // useEffect(loadPhotos, [get, readFile, setPhotos]);
+
     return {
         currentPhoto,
         takePhoto,
-        deletePhoto,
+
     };
 
     async function takePhoto() {
@@ -43,11 +42,10 @@ export function usePhotos() {
         if (!photos){
             photos = [] as MyPhoto[];
         }
-        // console.log('delete', typeof(photos), photos);
+
         const newPhotos = photos.filter(p => p.filepath !== photo.filepath);
         await setPreferences(PHOTOS, newPhotos);
         await deleteFile(photo.filepath);
-        // setPhotos(newPhotos);
     }
 
 }

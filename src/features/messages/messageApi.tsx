@@ -1,4 +1,3 @@
-// features/messages/api/messageApi.ts
 
 export interface Message {
     id: number;
