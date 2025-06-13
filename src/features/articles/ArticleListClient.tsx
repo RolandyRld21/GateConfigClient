@@ -535,8 +535,12 @@ const OptimizedArticleListClient: React.FC<RouteComponentProps> = ({ history }) 
                         )}
 
                         {/* Loading */}
-                        <IonLoading isOpen={fetching} message="Se încarcă produsele..." />
-
+                        <IonLoading
+                            isOpen={fetching}
+                            message="Se încarcă produsele..."
+                            spinner="dots" // sau "lines"
+                            translucent={true}
+                        />
                         {/* Articles Grid */}
                         {partialListOfArticles && (
                             <div className={`articles-grid ${viewMode === "list" ? "list-view" : "grid-view"}`}>
