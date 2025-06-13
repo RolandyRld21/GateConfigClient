@@ -43,7 +43,7 @@ interface IOrderMessage {
 const log = getLogger('order-ws');
 
 export const newOrderWebSocket = (token: string, onMessage: (msg: IOrderMessage) => void) => {
-    const ws = new WebSocket(`ws://${baseUrl}`);
+    const ws = new WebSocket(`wss://${baseUrl}`);
 
     ws.onopen = () => {
         log('WebSocket connected');

@@ -61,7 +61,7 @@ interface IMessageData {
 const log = getLogger('ws');
 
 export const newWebSocket = (token: string, onMessage: (data: IMessageData) => void) => {
-    const ws = new WebSocket(`ws://${baseUrl}`);
+    const ws = new WebSocket(`wss://${baseUrl}`);
 
     ws.onopen = () => {
         log('web socket onopen');
