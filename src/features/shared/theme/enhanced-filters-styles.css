@@ -175,7 +175,6 @@
     backdrop-filter: blur(10px);
     font-family: inherit;
     font-size: 0.875rem;
-    /* Eliminat box-shadow pentru cart-button */
     box-shadow: none;
 }
 
@@ -267,7 +266,6 @@
     backdrop-filter: blur(10px);
     font-family: inherit;
     font-size: 0.875rem;
-    /* Eliminat box-shadow pentru cart-button */
     box-shadow: none;
     color: #64748b;
 }
@@ -286,7 +284,7 @@
 }
 
 .mobile-menu-button {
-    display: none; /* Ascuns implicit pe desktop */
+    display: none;
     align-items: center;
     justify-content: center;
     width: 2.5rem;
@@ -299,7 +297,6 @@
     backdrop-filter: blur(10px);
     font-family: inherit;
     font-size: 0.875rem;
-    /* Eliminat box-shadow pentru cart-button */
     box-shadow: none;
     color: #64748b;
 
@@ -320,7 +317,7 @@
 .articles-content {
     position: relative;
     z-index: 10;
-    padding: 0; /* Elimină padding-ul care poate cauza gap-ul */
+    padding: 0;
     background:white ;
 }
 
@@ -340,10 +337,10 @@
     border-right: 1px solid rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
     position: relative;
-    z-index: 40; /* Asigură-te că este deasupra overlay-ului */
+    z-index: 40;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
-    margin-left: 0; /* Asigură-te că nu are margin stânga */
-    padding-left: 0; /* Asigură-te că nu are padding stânga */
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .enhanced-filters-content {
@@ -704,9 +701,8 @@
 }
 
 .extras-overlay {
-    position: absolute; /* sau fixed, în funcție de design */
+    position: absolute;
     z-index: 999;
-    /* restul stilurilor tale existente */
 }
 
 .apply-filters-btn {
@@ -1186,7 +1182,7 @@
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 35; /* Redus de la 25 la 35, dar sidebar-ul are z-index: 40 */
+    z-index: 35;
     display: none;
 }
 
@@ -1202,7 +1198,7 @@
 }
 .extras-overlay {
     position: fixed;
-    top: 64px; /* sub header */
+    top: 64px;
     right: 12px;
     z-index: 1000;
     background: white;
@@ -1253,7 +1249,6 @@
     backdrop-filter: blur(10px);
     font-family: inherit;
     font-size: 0.875rem;
-    /* Eliminat box-shadow pentru cart-button */
     box-shadow: none;
     color: #64748b;
     width: auto;
@@ -1290,11 +1285,11 @@
         display: none !important;
     }
     .mobile-menu-button {
-        display: flex !important; /* Afișează pe tablet și telefon */
+        display: flex !important;
     }
     .social-links {
-        display: flex; /* sau inline-flex / block, în funcție de layout */
-        gap: 8px;       /* opțional: spațiu între butoane */
+        display: flex;
+        gap: 8px;
         justify-content: center;
     }
 
@@ -1350,7 +1345,7 @@
         left: 0;
         bottom: 0;
         transform: translateX(-100%);
-        z-index: 45; /* Și mai mare pe mobile */
+        z-index: 45;
         width: 20rem;
         transition: transform 0.3s ease;
     }
@@ -1430,7 +1425,6 @@
 }
 
 @media (max-width: 480px) {
-    /* Pe telefoane foarte mici, ascunde și textul logo-ului */
     .logo-text {
         display: none;
     }

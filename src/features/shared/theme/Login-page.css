@@ -1239,7 +1239,6 @@
     }
 }
 
-/* Fix for responsive stats on desktop */
 @media (min-width: 1024px) {
     .stats-section {
         flex-direction: column;

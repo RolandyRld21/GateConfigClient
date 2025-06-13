@@ -145,7 +145,6 @@
     cursor: not-allowed;
 }
 
-/* Laptop și desktop: bule late, spațiu generos */
 @media (min-width: 800px) {
     .chat-messages-container {
         max-width: 1600px;
@@ -160,7 +159,6 @@
     }
 }
 
-/* Tablete și telefoane mari */
 @media (max-width: 799px) and (min-width: 500px) {
     .chat-messages-container {
         max-width: 98vw;
@@ -181,7 +179,6 @@
     }
 }
 
-/* Telefoane mici */
 @media (max-width: 499px) {
     .chat-messages-container {
         max-width: 100vw;

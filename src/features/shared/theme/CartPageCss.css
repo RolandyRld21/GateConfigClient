@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 22px;
-    color: #181818; /* NEGRU implicit pentru tot textul */
+    color: #181818;
 }
 .cart-section-title {
     font-size: 1.12rem;
@@ -32,11 +32,11 @@
 .cart-order-item .ion-label *,
 .cart-order-item span,
 .cart-order-item b {
-    color: #181818 !important; /* Negru pentru textul din comenzile din coș */
+    color: #181818 !important;
 }
 .cart-order-details {
     font-size: 0.99rem;
-    color: #181818; /* Negru pentru detalii comandă */
+    color: #181818;
     display: flex;
     gap: 14px;
 }
@@ -53,11 +53,11 @@
 .cart-item .ion-label,
 .cart-item .ion-label *,
 .cart-item span {
-    color: #181818 !important; /* Negru pentru adrese și label-uri */
+    color: #181818 !important;
 }
 .ion-select,
 .ion-select-option {
-    color: #181818 !important; /* Negru în select */
+    color: #181818 !important;
 }
 .cart-summary-section {
     background: #fff;
@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    color: #181818; /* Negru pentru textul din sumar */
+    color: #181818;
 }
 .cart-summary-row {
     display: flex;
@@ -75,7 +75,7 @@
     font-weight: 700;
     font-size: 1.06rem;
     margin-bottom: 2px;
-    color: #181818; /* Negru explicit */
+    color: #181818;
 }
 .cart-summary-price {
     color: #1877f2 !important;
@@ -108,7 +108,7 @@
     }
 }
 
-/* BONUS: forțăm orice label din zona de coș, pe orice temă Ionic */
+
 .cart-main-container .ion-label,
 .cart-main-container .ion-label *,
 .cart-main-container span,

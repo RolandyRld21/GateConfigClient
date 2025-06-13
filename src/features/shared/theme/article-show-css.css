@@ -26,7 +26,7 @@
     margin: 0 auto;
 }
 .modern-back-btn-in-cart {
-    display: flex; /* Ascuns implicit pe desktop */
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 5.5rem;
@@ -39,12 +39,11 @@
     backdrop-filter: blur(10px);
     font-family: inherit;
     font-size: 0.875rem;
-    /* Eliminat box-shadow pentru cart-button */
     box-shadow: none;
     color: #64748b;
 }
 .modern-back-btn {
-    display: flex; /* Ascuns implicit pe desktop */
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 5.5rem;
@@ -57,7 +56,6 @@
     backdrop-filter: blur(10px);
     font-family: inherit;
     font-size: 0.875rem;
-    /* Eliminat box-shadow pentru cart-button */
     box-shadow: none;
     color: #64748b;
 }
@@ -225,7 +223,6 @@
     border-radius: 2rem;
     box-shadow: 0 10px 40px rgba(0,0,0,0.25);
     padding: 0rem;
-    /* MODIFICĂ aici dimensiunea */
     max-width: 96vw;
     max-height: 96vh;
     display: flex;
@@ -234,7 +231,6 @@
 }
 
 .image-modal-content img {
-    /* Poza să ocupe cât mai mult din spațiu, fără să depășească fereastra */
     max-width: 95vw;
     max-height: 80vh;
     object-fit: contain;
@@ -254,7 +250,6 @@
 }
 
 
-/* Image Side */
 .product-image-side {
     position: sticky;
     top: 2rem;
