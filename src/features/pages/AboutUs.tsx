@@ -59,14 +59,8 @@ const AboutUs: React.FC = () => {
                             <IonIcon icon={arrowBackOutline} />
                             <span>Înapoi</span>
                         </button>
-                        {/* Logo */}
-
-
                         {/* Right Actions */}
                         <div className="toolbar-actions">
-
-
-
                             <div className="desktop-toolbar-extras-items" onClick={() => history.push("/our-work")}>
                                 <IonIcon icon={layersOutline} />
                                 <span>Proiectele Noastre</span>
@@ -75,11 +69,7 @@ const AboutUs: React.FC = () => {
                             <button className="action-button" onClick={() => setIsExtrasOpen(!isExtrasOpen)}>
                                 <IonIcon icon={grid} />
                             </button>
-
-
                         </div>
-
-
                     </div>
                 </IonToolbar>
             </IonHeader>
