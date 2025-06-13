@@ -11,14 +11,10 @@ import {
     menu,
     close,
     star,
-    people,
     briefcase,
     informationCircle,
     eyeOutline,
     eyeOffOutline,
-    trophyOutline,
-    timeOutline,
-    heartOutline,
 } from "ionicons/icons"
 import { useHistory } from "react-router-dom"
 import "../shared/theme/Login-page.css"

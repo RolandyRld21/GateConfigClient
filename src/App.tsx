@@ -64,6 +64,7 @@ import OrderListAdmin from "./features/orders/OrderListAdmin";
 import ArticleList from "./features/articles/ArticleList";
 import ArticleEdit from "./features/articles/ArticleEdit";
 import WhatsAppButton from "./features/shared/components/WhatsAppButton";
+import CookieConsentBanner from "./features/core/CookieConsentBanner";
 setupIonicReact();
 
 const App: React.FC = () => (
@@ -107,8 +108,8 @@ const App: React.FC = () => (
                     <Route exact path="/" render={() => <Redirect to="/login" />} />
                 </AuthProvider>
             </IonRouterOutlet>
-
         </IonReactRouter>
+        <CookieConsentBanner />
     </IonApp>
 );
 
