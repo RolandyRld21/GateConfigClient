@@ -65,14 +65,8 @@ const AboutUs: React.FC = () => {
                         {/* Right Actions */}
                         <div className="toolbar-actions">
 
-                            <div className="desktop-toolbar-extras-items" onClick={() => history.push("/aboutus")}>
-                                <IonIcon icon={sparkles} />
-                                <span>Despre Noi</span>
-                            </div>
-                            <div className="desktop-toolbar-extras-items" onClick={() => history.push("/reviewus")}>
-                                <IonIcon icon={starOutline} />
-                                <span>Recenzii</span>
-                            </div>
+
+
                             <div className="desktop-toolbar-extras-items" onClick={() => history.push("/our-work")}>
                                 <IonIcon icon={layersOutline} />
                                 <span>Proiectele Noastre</span>
@@ -81,13 +75,7 @@ const AboutUs: React.FC = () => {
                             <button className="action-button" onClick={() => setIsExtrasOpen(!isExtrasOpen)}>
                                 <IonIcon icon={grid} />
                             </button>
-                            {/* Cart Button */}
-                            <button className="action-button" onClick={() => history.push("/cart")}>
-                                <IonIcon icon={cartOutline}/>
-                            </button>
 
-                            {/* Settings Modal */}
-                            <MyModal />
 
                         </div>
 

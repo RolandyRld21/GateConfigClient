@@ -139,10 +139,6 @@ export const Login: React.FC = React.memo(() => {
                                     <IonIcon icon={informationCircle} />
                                     <span>Despre Noi</span>
                                 </button>
-                                <button className="nav-button" onClick={handleReviewUsRedirect}>
-                                    <IonIcon icon={star} />
-                                    <span>Recenzii</span>
-                                </button>
                                 <button className="nav-button" onClick={handleOurWorkRedirect}>
                                     <IonIcon icon={briefcase} />
                                     <span>Proiectele Noastre</span>
