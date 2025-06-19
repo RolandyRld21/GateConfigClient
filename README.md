@@ -14,9 +14,16 @@ GateConfiguration is a modern web application for configuring and ordering custo
 
 ## 📷 Screenshots
 
-![Main Page](screenshots/mainpage.png)
-![Order Page](screenshots/order.png)
-<!-- Add your real screenshots here -->
+![Login Page](screenshots/login.png)
+![Client Article List](screenshots/ArticleListClient.png)
+![Cart Design](screenshots/CartDesign.png)
+![Configure Article](screenshots/ConfigureArticle.png)
+![Messages](screenshots/Messages.png)
+![Reviews](screenshots/Reviews.png)
+![Admin - User Management](screenshots/UserManagement.png)
+![Admin - Edit User](screenshots/AdminEdit.png)
+![Admin - User History](screenshots/AdminHistory.png)
+![Admin - Order History](screenshots/AdminOrderHistory.png)
 
 ## 🧩 Tech Stack
 - **Frontend:** Ionic React, TypeScript
