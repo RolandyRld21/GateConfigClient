@@ -12,18 +12,7 @@ GateConfiguration is a modern web application for configuring and ordering custo
 - **Admin panel** for product management, user moderation, and order status updates
 - **Responsive design** for mobile and desktop use
 
-## 📷 Screenshots
 
-![Login Page](screenshots/login.png)
-![Client Article List](screenshots/ArticleListClient.png)
-![Cart Design](screenshots/CartDesign.png)
-![Configure Article](screenshots/ConfigureArticle.png)
-![Messages](screenshots/Messages.png)
-![Reviews](screenshots/Reviews.png)
-![Admin - User Management](screenshots/UserManagement.png)
-![Admin - Edit User](screenshots/AdminEdit.png)
-![Admin - User History](screenshots/AdminHistory.png)
-![Admin - Order History](screenshots/AdminOrderHistory.png)
 
 ## 🧩 Tech Stack
 - **Frontend:** Ionic React, TypeScript
@@ -41,3 +30,18 @@ The need for custom metal products (gates, fences, canopies) has grown with the 
 For questions, suggestions, or collaboration opportunities:
 - Email: sergiud222@email.com
 - LinkedIn: [Sergiu Roland David](https://www.linkedin.com/in/sergiu-roland-david-04b462271/)
+
+
+
+## 📷 Screenshots
+
+![Login Page](screenshots/login.png)
+![Client Article List](screenshots/ArticleListClient.png)
+![Cart Design](screenshots/CartDesign.png)
+![Configure Article](screenshots/ConfigureArticle.png)
+![Messages](screenshots/Messages.png)
+![Reviews](screenshots/Reviews.png)
+![Admin - User Management](screenshots/UserManagement.png)
+![Admin - Edit User](screenshots/AdminEdit.png)
+![Admin - User History](screenshots/AdminHistory.png)
+![Admin - Order History](screenshots/AdminOrderHistory.png)
